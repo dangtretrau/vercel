@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>haidang's site</title>
+    <meta name="description" content="Bio cá nhân của haidang.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    
+    <video id="bg-video" muted loop playsinline autoplay
+        style="position:fixed;top:50%;left:50%;min-width:100vw;min-height:100vh;width:auto;height:auto;z-index:-1;object-fit:cover;transform:translate(-50%,-50%);pointer-events:none;transition:opacity 1s ease;">
+        <source src="1021.mp4" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ thẻ video.
+    </video>
+
+    <audio id="bg-audio" src="sound.mp3" loop></audio>
+
+    <div id="welcome-overlay" class="welcome-overlay">
+        <div class="welcome-title">Chào mừng đến với Bio của haidang</div>
+        <button id="enter-btn" class="enter-btn">ENTER BIO</button>
+    </div>
+
+    <div class="bio-container">
+        <div class="avatar-border">
+            <img src="avt.jpg" alt="Avatar của haidangg" class="avatar">
+        </div>
+        <div class="username rainbow-text">haidangg</div>
+        <div class="caption">🍀 skidder mạnh nhất lịch sử !!! 🍀</div>
+    </div>
+    
+    <div class="social-icons">
+        <a href="https://www.youtube.com/@whomovefirstgay" target="_blank" class="social-icon youtube" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://t.me/whomovefirstgay" target="_blank" class="social-icon telegram" aria-label="Telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://discord.gg/TFFEc6d8bP" target="_blank" class="social-icon discord" aria-label="Discord">
+            <i class="fab fa-discord"></i>
+        </a>
+    </div>
+    
+    <script src="script.js"></script>
+
+    <noscript>
+      <p style="color: white; text-align: center; padding-top: 50vh; transform: translateY(-50%); z-index: 10;">Vui lòng bật JavaScript để xem trang này.</p>
+    </noscript>
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+body {
+    font-family: Arial, sans-serif;
+    background: transparent; 
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 56.25vw; 
+    min-height: 100vh;
+    min-width: 177.77vh; 
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Luôn nằm dưới cùng */
+    pointer-events: none;
+    /* Đã sửa: Video hiển thị ngay lập tức */
+    opacity: 1; 
+    transition: opacity 1s ease-in-out;
+    border: none;
+    outline: none;
+}
+
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.5s ease-out;
+}
+
+.welcome-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.welcome-title {
+    color: #00ff88;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+    margin-bottom: 40px;
+    animation: pulse 1.5s infinite;
+}
+
+.enter-btn {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    background: linear-gradient(90deg, #00ff88, #4affaa, #00ff88);
+    background-size: 200% auto;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.7);
+    transition: all 0.3s ease;
+}
+
+.enter-btn:hover {
+    background-position: right center;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 1);
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.bio-container {
+    position: relative;
+    z-index: 2;
+    background: rgba(20, 20, 20, 0.95);
+    padding: 32px 44px;
+    border-radius: 20px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+    text-align: center;
+    max-width: 370px;
+    margin: 60px auto;
+}
+
+.avatar-border {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    padding: 4px;
+    background: conic-gradient(
+        #ff0000, #ff9900, #ffee00, #33ff00, #00ffee, #0066ff, #cc00ff, #ff0000
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px auto;
+    transition: background 0.5s;
+    box-shadow: 0 0 24px 4px rgba(255,255,255,0.12);
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #222;
+    border: 3px solid #222;
+    display: block;
+}
+
+.username {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 0;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #ff0000, #ff9900, #ffee00, #33ff00, #00ffee, #0066ff, #cc00ff, #ff0000);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-text 3s linear infinite;
+}
+
+@keyframes rainbow-text {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.caption {
+    font-size: 1.1rem;
+    color: #fff;
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+
+.social-icons {
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 35px;
+    z-index: 2;
+}
+
+.social-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.social-icon i {
+    font-size: 28px;
+    color: #fff;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+}
+
+.social-icon.youtube {
+    background: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.5),
+                0 0 40px rgba(255, 0, 0, 0.3);
+    animation: float 6s ease-in-out infinite;
+}
+
+.social-icon.telegram {
+    background: rgba(0, 136, 204, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 136, 204, 0.5),
+                0 0 40px rgba(0, 136, 204, 0.3);
+    animation: float 6s ease-in-out infinite 2s;
+}
+
+.social-icon.discord {
+    background: rgba(88, 101, 242, 0.4);
+    box-shadow: 0 4px 20px rgba(88, 101, 242, 0.5),
+                0 0 40px rgba(88, 101, 242, 0.3);
+    animation: float 6s ease-in-out infinite 4s;
+}
+
+.social-icon:hover {
+    transform: translateY(-8px) scale(1.15);
+    border: 2px solid rgba(255,255,255,0.6);
+}
+
+.social-icon.youtube:hover {
+    background: rgba(255, 0, 0, 0.7);
+    box-shadow: 0 8px 35px rgba(255, 0, 0, 0.7),
+                0 0 60px rgba(255, 0, 0, 0.4);
+}
+
+.social-icon.telegram:hover {
+    background: rgba(0, 136, 204, 0.7);
+    box-shadow: 0 8px 35px rgba(0, 136, 204, 0.7),
+                0 0 60px rgba(0, 136, 204, 0.4);
+}
+
+.social-icon.discord:hover {
+    background: rgba(88, 101, 242, 0.7);
+    box-shadow: 0 8px 35px rgba(88, 101, 242, 0.7),
+                0 0 60px rgba(88, 101, 242, 0.4);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+    66% {
+        transform: translateY(15px) rotate(-5deg);
+    }
+}
+
+
+@media (max-width: 768px) {
+    #bg-video {
+        height: 100vh;
+        width: 177.77vh;
+    }
+    
+    .bio-container {
+        margin: 30px 20px;
+        padding: 24px 32px;
+        max-width: 320px;
+    }
+    
+    .social-icons {
+        bottom: 100px;
+        gap: 25px;
+    }
+    
+    .social-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .social-icon i {
+        font-size: 24px;
+    }
+    
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+}
