@@ -196,7 +196,7 @@ body {
     animation: float 6s ease-in-out infinite 2s;
 }
 
-.social-icon.discord {
+.social-icon.github {
     background: rgba(88, 101, 242, 0.4);
     box-shadow: 0 4px 20px rgba(88, 101, 242, 0.5),
                 0 0 40px rgba(88, 101, 242, 0.3);
@@ -220,7 +220,7 @@ body {
                 0 0 60px rgba(0, 136, 204, 0.4);
 }
 
-.social-icon.discord:hover {
+.social-icon.github:hover {
     background: rgba(88, 101, 242, 0.7);
     box-shadow: 0 8px 35px rgba(88, 101, 242, 0.7),
                 0 0 60px rgba(88, 101, 242, 0.4);
@@ -270,3 +270,4 @@ body {
     }
 
 }
+
