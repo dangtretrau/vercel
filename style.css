@@ -17,9 +17,8 @@ body {
     min-height: 100vh;
     min-width: 177.77vh; 
     transform: translate(-50%, -50%);
-    z-index: -1; /* Luôn nằm dưới cùng */
+    z-index: -1;
     pointer-events: none;
-    /* Đã sửa: Video hiển thị ngay lập tức */
     opacity: 1; 
     transition: opacity 1s ease-in-out;
     border: none;
@@ -269,4 +268,5 @@ body {
     .welcome-title {
         font-size: 1.8rem;
     }
+
 }
