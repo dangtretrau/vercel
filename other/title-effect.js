@@ -6,7 +6,7 @@ let titleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
-const typingSpeed = 270; // 250ms/ký tự
+const typingSpeed = 270;
 const deletingSpeed = 270;
 const pauseTime = 1000;
 
@@ -39,4 +39,5 @@ function typeWriterEffect() {
 }
 document.addEventListener('DOMContentLoaded', () => {
     typeWriterEffect();
+
 });
