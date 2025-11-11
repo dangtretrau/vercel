@@ -96,12 +96,8 @@ body {
 
 .bio-container:hover {
     background: rgba(10, 10, 10, 0.98); 
-    box-shadow: 
-        0 0 15px rgba(0, 255, 136, 0.8),
-        0 0 35px rgba(0, 255, 136, 0.6),
-        0 0 60px rgba(0, 255, 136, 0.2);
     transform: scale(1.02); 
-    border: 1px solid rgba(0, 255, 136, 0.5); 
+    /* Box-shadow sẽ được đặt bằng JavaScript */
 }
 
 .avatar-border {
@@ -160,12 +156,14 @@ body {
     margin-top: 10px;
     display: inline-block;
     font-weight: 500;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    transition: box-shadow 0.3s ease-in-out;
+    /* Xóa box-shadow cũ (vòm trắng) */
+    box-shadow: none;
+    transition: none; 
 }
 
 .caption:hover {
-    box-shadow: 0 2px 15px rgba(255, 255, 255, 0.4);
+    /* Xóa hiệu ứng hover cho caption */
+    box-shadow: none;
 }
 
 .social-icons {
