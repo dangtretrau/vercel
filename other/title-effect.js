@@ -1,6 +1,8 @@
 const tabTitles = [
-    "welcome to",
-    "my bio!"
+    "AsTiC tEcH",
+    "aStIc TeCh",
+    "ASTIC TECH",
+    "astic tech"
 ];
 let tabTitleIndex = 0;
 let charIndex = 0;
@@ -67,3 +69,4 @@ document.addEventListener('DOMContentLoaded', () => {
     typeWriterEffect();
     setTimeout(updateHeaderText, 500); 
 });
+
