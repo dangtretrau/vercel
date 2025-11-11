@@ -97,7 +97,6 @@ body {
 .bio-container:hover {
     background: rgba(10, 10, 10, 0.98); 
     transform: scale(1.02); 
-    /* Box-shadow sẽ được đặt bằng JavaScript */
 }
 
 .avatar-border {
@@ -156,13 +155,11 @@ body {
     margin-top: 10px;
     display: inline-block;
     font-weight: 500;
-    /* Xóa box-shadow cũ (vòm trắng) */
     box-shadow: none;
     transition: none; 
 }
 
 .caption:hover {
-    /* Xóa hiệu ứng hover cho caption */
     box-shadow: none;
 }
 
@@ -283,3 +280,4 @@ body {
         font-size: 1.8rem;
     }
 }
+
