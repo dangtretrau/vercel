@@ -7,6 +7,7 @@ body {
     position: relative;
 }
 
+
 #bg-video {
     position: fixed;
     top: 50%;
@@ -86,17 +87,15 @@ body {
     background: rgba(20, 20, 20, 0.95);
     padding: 32px 44px;
     border-radius: 20px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.25), 0 0 10px rgba(0, 255, 136, 0.1); 
+    box-shadow: 0 4px 32px rgba(0,0,0,0.25);
     text-align: center;
     max-width: 370px;
     margin: 60px auto;
-    transition: all 0.4s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .bio-container:hover {
-    background: rgba(10, 10, 10, 0.98); 
-    transform: scale(1.02); 
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.35); 
 }
 
 .avatar-border {
@@ -155,13 +154,14 @@ body {
     margin-top: 10px;
     display: inline-block;
     font-weight: 500;
-    box-shadow: none;
-    transition: none; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .caption:hover {
-    box-shadow: none;
+    box-shadow: 0 2px 15px rgba(255, 255, 255, 0.4);
 }
+
 
 .social-icons {
     position: absolute;
@@ -279,5 +279,5 @@ body {
     .welcome-title {
         font-size: 1.8rem;
     }
-}
 
+}
