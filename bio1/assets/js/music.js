@@ -1,7 +1,5 @@
 const songs = [
-    "hay là.mp3",
-    "lần cuối.mp3",
-    "trước khi em tồn tại.mp3"
+    "song.mp3",
 ];
 
 let currentSongIndex = 0;
