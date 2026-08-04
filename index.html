@@ -4,7 +4,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title></title>
+  <title>Bio Page</title>
   <link rel="stylesheet" type="text/css" href="styles.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="icon" type="image/x-icon" href="./assets/favico/default.ico">
@@ -14,11 +14,11 @@
   <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
   <link rel="stylesheet" href="./assets/css/tilt-effect.css">
 </head>
+<body>
 
   <div id="terminal">
     <div id="terminal-header">
       <div id="terminal-buttons">
-
         <div class="terminal-button" id="close-button"></div>
         <div class="terminal-button" id="minimize-button"></div>
         <div class="terminal-button" id="maximize-button"></div>
@@ -34,31 +34,33 @@
       <source src="./assets/back/default.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
+    <div id="video-overlay"></div>
 
-    <div id="audio-background">
-      <div id="music-controls">
+    <!-- NÚT ÂM LƯỢNG CHỈ HIỆN SAU KHI VÀO BIO -->
+    <div id="top-left-volume" class="volume-container volume-hidden">
+      <i class="fas fa-volume-high" id="volume-icon"></i>
+      <div class="volume-slider-wrapper">
         <input type="range" id="volume-slider" min="0" max="100" value="50">
-        <div id="progress-container">
-          <div id="progress-bar"></div>
-        </div>
       </div>
     </div>
 
-    </div>
-    <div id="video-overlay"></div>
+    <!-- KHUNG BIO MAIN (NÂNG CAO LÊN) -->
     <div id="blurred-box" class="tilt-element">
       <img id="profile-picture" src="./assets/pfp/default.png" alt="Profile Picture">
       <img id="avatar-frame" src="" alt="Avatar Frame">
+      
       <p id="username-container" style="color: white; font-weight: bold; font-size: 32px;">
         <span id="username">yanji</span>
         <span id="typing-cursor">|</span>
       </p>
+
       <div class="badges-container">
         <img src="./assets/badge/developer.png" alt="dev badge">
         <img src="./assets/badge/love.png" alt="heart badge">
         <img src="./assets/badge/music.png" alt="music badge">
         <img src="./assets/badge/verified.png" alt="verified badge">
       </div>
+
       <div class="lang-container">
         <img src="./assets/logo/c.png" alt="c">
         <img src="./assets/logo/cplusplus.png" alt="cplusplus">
@@ -117,6 +119,24 @@
           <i class="fa-brands fa-google mail"></i>
         </a> 
       </div>
+
+      <!-- KHUNG PHÁT NHẠC MINI (NẰM Ở DƯỚI CÙNG TRONG KHUNG BIO) -->
+      <div id="music-player-card">
+        <div class="player-left">
+          <img id="music-cover" src="./assets/pfp/default.png" alt="Track Cover">
+          <div class="track-info">
+            <span id="track-title">Song Name</span>
+            <span id="track-artist">Artist Name</span>
+          </div>
+        </div>
+
+        <div class="player-controls">
+          <button id="prev-btn" title="Bài trước"><i class="fas fa-step-backward"></i></button>
+          <button id="play-pause-btn" title="Phát/Tạm dừng"><i class="fas fa-play"></i></button>
+          <button id="next-btn" title="Bài tiếp"><i class="fas fa-step-forward"></i></button>
+        </div>
+      </div>
+
     </div>
   </div>
   
