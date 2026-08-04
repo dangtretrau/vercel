@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var terminalText = document.getElementById('terminal-text');
   var videoBackground = document.getElementById('myVideo');
   var closeButton = document.getElementById('close-button');
+  var volumeContainer = document.getElementById('top-left-volume');
+  var volumeIcon = document.getElementById('volume-icon');
+  var volumeSlider = document.getElementById('volume-slider');
 
   var terminalTextContent = [
       "User: yanji",
@@ -51,16 +54,76 @@ document.addEventListener('DOMContentLoaded', function() {
       typeChar();
   }
 
+  function updateVolumeIcon(volumeValue) {
+      const volume = Math.max(0, Math.min(1, volumeValue ?? 0));
+      let iconClass = 'fa-volume-xmark';
+
+      if (volume >= 0.75) {
+          iconClass = 'fa-volume-high';
+      } else if (volume >= 0.35) {
+          iconClass = 'fa-volume-low';
+      } else if (volume > 0) {
+          iconClass = 'fa-volume-down';
+      }
+
+      if (volumeIcon) {
+          volumeIcon.className = `fas ${iconClass}`;
+      }
+  }
+
+  function syncVolumeControl(volumeValue) {
+      const value = Math.max(0, Math.min(100, Math.round(volumeValue * 100)));
+      if (volumeSlider) {
+          volumeSlider.value = value;
+      }
+      updateVolumeIcon(value / 100);
+  }
+
+  function setAudioVolume(volumeValue) {
+      const normalizedValue = Math.max(0, Math.min(1, volumeValue));
+      const audio = window.MusicPlayer?.getAudio?.();
+      if (audio) {
+          audio.volume = normalizedValue;
+          audio.muted = normalizedValue === 0;
+      }
+
+      const video = document.getElementById('myVideo');
+      if (video) {
+          video.volume = normalizedValue;
+          video.muted = normalizedValue === 0;
+      }
+
+      syncVolumeControl(normalizedValue);
+  }
+
+  if (volumeSlider) {
+      volumeSlider.addEventListener('input', function() {
+          setAudioVolume(parseInt(this.value, 10) / 100);
+      });
+  }
+
   function handleInput() {
-      enterFullscreen(); 
+      enterFullscreen();
 
       terminalContainer.style.display = 'none';
       document.getElementById('myVideo').play();
-      document.getElementById('blurred-box').style.display = 'block';
-      document.getElementById('music-controls').style.display = 'flex';
+      const blurredBox = document.getElementById('blurred-box');
+      const musicPlayerCard = document.getElementById('music-player-card');
+      if (blurredBox) {
+          blurredBox.style.display = 'flex';
+      }
+      if (musicPlayerCard) {
+          musicPlayerCard.style.display = 'flex';
+      }
+      if (volumeContainer) {
+          volumeContainer.classList.remove('volume-hidden');
+      }
       removeEventListeners();
       document.body.classList.add('video-normal');
-      window.MusicPlayer.start()
+      if (window.MusicPlayer) {
+          window.MusicPlayer.start();
+      }
+      setAudioVolume(parseInt(volumeSlider?.value || 50, 10) / 100);
   }
 
   function addEventListeners() {
@@ -211,9 +274,12 @@ document.addEventListener('DOMContentLoaded', function() {
       var centerX = (window.innerWidth - terminalWidth) / 2;
       var centerY = (window.innerHeight - terminalHeight) / 2;
 
-      terminalContainer.style.position = 'absolute';
-      terminalContainer.style.left = centerX + 'px';
-      terminalContainer.style.top = centerY + 'px';
+      terminalContainer.style.position = 'fixed';
+      terminalContainer.style.left = '50%';
+      terminalContainer.style.top = '50%';
+      terminalContainer.style.transform = 'translate(-50%, -50%)';
+      terminalContainer.style.margin = '0';
+      terminalContainer.style.maxWidth = '92vw';
   }
 
   centerTerminal();
@@ -228,5 +294,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.body.classList.remove('video-normal');
-  videoOverlay.style.display = 'block'; 
+  videoOverlay.style.display = 'block';
+  setAudioVolume(0.5);
 });
